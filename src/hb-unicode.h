@@ -41,9 +41,7 @@ HB_BEGIN_DECLS
 
 
 /**
- * HB_UNICODE_MAX:
- *
- * Maximum valid Unicode code point.
+ * HB_UNICODE_MAX
  *
  * Since: 1.9.0
  **/
@@ -625,6 +623,10 @@ hb_unicode_mirroring (hb_unicode_funcs_t *ufuncs,
 HB_EXTERN hb_script_t
 hb_unicode_script (hb_unicode_funcs_t *ufuncs,
 		   hb_codepoint_t unicode);
+
+HB_EXTERN int
+hb_ucd_bidi (hb_codepoint_t unicode);
+
 
 HB_EXTERN hb_bool_t
 hb_unicode_compose (hb_unicode_funcs_t *ufuncs,

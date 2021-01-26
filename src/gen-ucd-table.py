@@ -28,6 +28,8 @@ logging.info('Preparing data tables...')
 gc = [u['gc'] for u in ucd]
 ccc = [int(u['ccc']) for u in ucd]
 bmg = [int(v, 16) - int(u) if v else 0 for u,v in enumerate(u['bmg'] for u in ucd)]
+bc = [u['bc'] for u in ucd]
+
 #gc_ccc_non0 = set((cat,klass) for cat,klass in zip(gc,ccc) if klass)
 #gc_bmg_non0 = set((cat,mirr) for cat,mirr in zip(gc, bmg) if mirr)
 
@@ -69,6 +71,14 @@ for i,v in enumerate(('Cc', 'Cf', 'Cn', 'Co', 'Cs', 'Ll', 'Lm', 'Lo', 'Lt', 'Lu'
                       'Pi', 'Po', 'Ps', 'Sc', 'Sk', 'Sm', 'So', 'Zl', 'Zp', 'Zs',)):
     gc_order[i] = v
     gc_order[v] = i
+
+bc_order = dict()
+for i,v in enumerate(('L', 'R', 'AL', 'EN', 'ES', 'ET', 'AN', 'CS', 'NSM', 'BN', 'B', 'S',
+                      'WS', 'ON', 'LRE', 'LRO', 'RLE', 'RLO', 'PDF', 'LRI', 'RLI', 'FSI',
+                      'PDI',)):
+    bc_order[i] = v
+    bc_order[v] = i
+
 
 sc_order = dict()
 sc_array = []
@@ -118,6 +128,7 @@ datasets = [
     ('bmg', bmg, 0, None),
     ('sc', sc, 'Zzzz', sc_order),
     ('dm', dm, None, dm_order),
+    ('bc', bc, 'ON', bc_order),
 ]
 
 for compression in (DEFAULT, COMPACT, SLOPPY):

@@ -52,6 +52,12 @@ hb_ucd_script (hb_unicode_funcs_t *ufuncs HB_UNUSED,
   return _hb_ucd_sc_map[_hb_ucd_sc (unicode)];
 }
 
+HB_EXTERN int
+hb_ucd_bidi (hb_codepoint_t unicode)
+{
+  return _hb_ucd_bc(unicode);
+}
+
 
 #define SBASE 0xAC00u
 #define LBASE 0x1100u

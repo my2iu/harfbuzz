@@ -58,6 +58,12 @@ hb_ucd_bidi (hb_codepoint_t unicode)
   return _hb_ucd_bc(unicode);
 }
 
+HB_EXTERN int
+hb_ucd_vertical_orientation (hb_codepoint_t unicode)
+{
+  return _hb_ucd_vo(unicode);
+}
+
 
 #define SBASE 0xAC00u
 #define LBASE 0x1100u
